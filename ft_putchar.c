@@ -6,11 +6,11 @@
 /*   By: rnomoto <rnomoto@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 20:27:12 by rnomoto           #+#    #+#             */
-/*   Updated: 2024/10/11 20:34:51 by rnomoto          ###   ########.fr       */
+/*   Updated: 2024/10/11 21:35:35 by rnomoto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 void	ft_putchar(char c)
 {
