@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   type_c.c                                           :+:      :+:    :+:   */
+/*   case_c.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnomoto <rnomoto@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 15:54:21 by rnomoto           #+#    #+#             */
-/*   Updated: 2024/10/13 17:15:31 by rnomoto          ###   ########.fr       */
+/*   Updated: 2024/10/14 16:34:57 by rnomoto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	case_c(va_list ap)
+int	case_c(va_list ap, int count)
 {
-	char c = va_arg(ap, int);
-	// why int? why can't char?
+	char	c;
+
+	c = va_arg(ap, int);
 	ft_putchar(c);
+	count += 1;
+	return (count);
 }
