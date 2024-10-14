@@ -6,54 +6,63 @@
 /*   By: rnomoto <rnomoto@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 16:34:41 by rnomoto           #+#    #+#             */
-/*   Updated: 2024/10/13 17:40:24 by rnomoto          ###   ########.fr       */
+/*   Updated: 2024/10/14 17:07:55 by rnomoto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	converse(const char *format, va_list ap)
+int	converse(const char *format, va_list ap, int count)
 {
 	int	conv;
 
 	conv = *format;
 	if (conv == 'c')
-		case_c(ap);
+		count = case_c(ap, count);
 	else if (conv == 's')
-		case_s(ap);
+		count = case_s(ap, count);
 	else if (conv == 'p')
-		case_p(ap);
+		count = case_p(ap, count);
 	else if (conv == 'd' || conv == 'i')
-		case_d(ap);
+		count = case_d(ap, count);
 	else if (conv == 'u')
-		case_u(ap);
+		count = case_u(ap, count);
 	else if (conv == 'x')
-		case_lx(ap);
+		count = case_lx(ap, count);
 	else if (conv == 'X')
-		case_ux(ap);
+		count = case_ux(ap, count);
 	else if (conv == '%')
+	{
 		ft_putchar('%');
+		count += 1;
+	}
 	format++;
+	return count;
 }
 
 int	ft_printf(const char *format, ...)
 {
 	va_list	ap;
+    int count = 0;
 
 	va_start(ap, format);
 	while (*format)
 	{
 		if (*format != '%')
+        {
 			ft_putchar(*format);
+			if (31 < *format && *format < 127)
+            	count += 1;
+        }
 		else if (*format == '%')
 		{
 			format++;
-			converse(format, ap);
+			count = converse(format, ap, count);
 		}
 		format++;
 	}
 	va_end(ap);
-	return (ft_strlen(format));
+	return (count);
 }
 
 // int main(void)
@@ -62,14 +71,32 @@ int	ft_printf(const char *format, ...)
 //     char c = 'A';
 //     char str[] = "hello";
 //     unsigned int u = 42;
-//     ft_printf("hello %c hello%c\n", c, c);
-//     ft_printf("hello %d hello\n", d);
-//     ft_printf("hello %s hello\n", str);
-//     ft_printf("%p\n", str);
-//     ft_printf("hello %u hello\n", u);
-//     ft_printf("hello %x hello\n", d);
-//     ft_printf("hello %X hello\n", d);
-//     ft_printf("hello %% hello\n");
+// 	int len = ft_printf("hello hello\n");
+// 	printf("count: %d\n", len);
+	
+//     int len_n = ft_printf("%c%c\n", c, c);
+// 	printf("count: %d\n", len_n);
+
+//     int len_d = ft_printf("hello %d hello\n", d);
+// 	printf("count: %d\n", len_d);
+
+//     int len_s = ft_printf("%s\n", str);
+// 	printf("count: %d\n", len_s);
+
+//     int len_p = ft_printf("%p\n", str);
+// 	printf("count: %d\n", len_p);
+
+//     int len_u = ft_printf("%u\n", u);
+// 	printf("count: %d\n", len_u);
+
+//     len_d = ft_printf("%x\n", d);
+// 	printf("count: %d\n", len_d);
+
+//     len_d = ft_printf("%X\n", d);
+// 	printf("count: %d\n", len_d);
+    
+// 	int len_len = ft_printf("%%\n");
+// 	printf("count: %d\n", len_len);
 
 //     return (0);
 // }
