@@ -6,58 +6,31 @@
 /*   By: rnomoto <rnomoto@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 16:34:41 by rnomoto           #+#    #+#             */
-/*   Updated: 2024/10/14 17:07:55 by rnomoto          ###   ########.fr       */
+/*   Updated: 2024/10/14 17:46:47 by rnomoto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	converse(const char *format, va_list ap, int count)
-{
-	int	conv;
-
-	conv = *format;
-	if (conv == 'c')
-		count = case_c(ap, count);
-	else if (conv == 's')
-		count = case_s(ap, count);
-	else if (conv == 'p')
-		count = case_p(ap, count);
-	else if (conv == 'd' || conv == 'i')
-		count = case_d(ap, count);
-	else if (conv == 'u')
-		count = case_u(ap, count);
-	else if (conv == 'x')
-		count = case_lx(ap, count);
-	else if (conv == 'X')
-		count = case_ux(ap, count);
-	else if (conv == '%')
-	{
-		ft_putchar('%');
-		count += 1;
-	}
-	format++;
-	return count;
-}
-
 int	ft_printf(const char *format, ...)
 {
 	va_list	ap;
-    int count = 0;
+	int		count;
 
+	count = 0;
 	va_start(ap, format);
 	while (*format)
 	{
 		if (*format != '%')
-        {
+		{
 			ft_putchar(*format);
 			if (31 < *format && *format < 127)
-            	count += 1;
-        }
+				count += 1;
+		}
 		else if (*format == '%')
 		{
 			format++;
-			count = converse(format, ap, count);
+			count = convert(format, ap, count);
 		}
 		format++;
 	}
@@ -73,7 +46,7 @@ int	ft_printf(const char *format, ...)
 //     unsigned int u = 42;
 // 	int len = ft_printf("hello hello\n");
 // 	printf("count: %d\n", len);
-	
+
 //     int len_n = ft_printf("%c%c\n", c, c);
 // 	printf("count: %d\n", len_n);
 
@@ -94,7 +67,7 @@ int	ft_printf(const char *format, ...)
 
 //     len_d = ft_printf("%X\n", d);
 // 	printf("count: %d\n", len_d);
-    
+
 // 	int len_len = ft_printf("%%\n");
 // 	printf("count: %d\n", len_len);
 
