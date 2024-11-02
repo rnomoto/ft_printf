@@ -17,13 +17,13 @@ int	ft_putnbr_count(int nb, int count)
 	if (nb == -2147483648)
 	{
 		write(1, "-2147483648", 11);
-        count += 11;
-		return count;
+		count += 11;
+		return (count);
 	}
 	if (nb < 0)
 	{
 		ft_putchar('-');
-        count += 1;
+		count += 1;
 		nb = -nb;
 	}
 	if (nb > 9)
@@ -40,5 +40,5 @@ int	ft_putnbr_count(int nb, int count)
 //     count = ft_putnbr_count(nb, count);
 //     printf("\n%d\n", count);
 
-//     return 0;
+//     return (0);
 // }

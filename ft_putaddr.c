@@ -20,9 +20,9 @@ int	ft_putaddr(void *s, int count)
 	ad = &s;
 	adr = (uintptr_t)ad;
 	write(1, "0x", 2);
-    count += 2;
+	count += 2;
 	count += ft_putnbr_ptr(adr, count - 2);
-    return count;
+	return (count);
 }
 
 // int main(void)

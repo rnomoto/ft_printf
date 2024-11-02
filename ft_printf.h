@@ -6,7 +6,7 @@
 /*   By: rnomoto <rnomoto@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 16:41:45 by rnomoto           #+#    #+#             */
-/*   Updated: 2024/10/14 17:47:11 by rnomoto          ###   ########.fr       */
+/*   Updated: 2024/10/14 21:25:10 by rnomoto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@
 # include <stdint.h>
 
 int		ft_printf(const char *format, ...);
-int convert(const char *format, va_list ap, int count);
-int		case_c(va_list ap, int count);
-int		case_d(va_list ap, int count);
-int		case_lx(va_list ap, int count);
-int		case_p(va_list ap, int count);
-int		case_s(va_list ap, int count);
-int		case_u(va_list ap, int count);
-int		case_ux(va_list ap, int count);
+int		convert(const char *format, va_list *ap, int count);
+int		case_c(va_list *ap, int count);
+int		case_d(va_list *ap, int count);
+int		case_lx(va_list *ap, int count);
+int		case_p(va_list *ap, int count);
+int		case_s(va_list *ap, int count);
+int		case_u(va_list *ap, int count);
+int		case_ux(va_list *ap, int count);
 int		ft_putaddr(void *s, int count);
 void	ft_putchar(char c);
 int		ft_putnbr_case(int nbr, int count, char case_type);

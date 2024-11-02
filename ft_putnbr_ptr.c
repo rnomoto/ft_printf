@@ -14,13 +14,14 @@
 
 int	ft_putnbr_ptr(uintptr_t nbr, int count)
 {
-	char *base = "0123456789abcdef";
+	char	*base;
 
+	base = "0123456789abcdef";
 	if (nbr > 15)
 		count = ft_putnbr_ptr(nbr / 16, count);
 	ft_putchar(base[nbr % 16]);
 	count += 1;
-	return count;
+	return (count);
 }
 
 // int main(void)
@@ -32,5 +33,5 @@ int	ft_putnbr_ptr(uintptr_t nbr, int count)
 // 	count = ft_putnbr_ptr(nbr, count);
 // 	printf("\n%d\n", count);
 
-// 	return 0;
+// 	return (0);
 // }

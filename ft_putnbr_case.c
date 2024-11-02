@@ -6,7 +6,7 @@
 /*   By: rnomoto <rnomoto@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 14:51:03 by rnomoto           #+#    #+#             */
-/*   Updated: 2024/10/14 15:53:07 by rnomoto          ###   ########.fr       */
+/*   Updated: 2024/10/14 20:04:37 by rnomoto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 int	ft_putnbr_case(int nbr, int count, char case_type)
 {
-	char *base = NULL;
+	char	*base;
+
+	base = NULL;
 	if (case_type == 'a')
 		base = "0123456789abcdef";
 	else if (case_type == 'A')
@@ -31,5 +33,5 @@ int	ft_putnbr_case(int nbr, int count, char case_type)
 	}
 	ft_putchar(base[nbr % 16]);
 	count += 1;
-	return count;
+	return (count);
 }
