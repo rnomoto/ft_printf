@@ -1,0 +1,3 @@
+ft_printf: a
+arg1: a
+ALL OK
