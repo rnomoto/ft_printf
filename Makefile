@@ -3,7 +3,7 @@ SRCS = $(wildcard libft/*.c) case_c.c case_d.c case_lx.c case_p.c case_s.c case_
 		ft_putaddr.c ft_putchar.c ft_putnbr_case.c ft_putnbr_count.c ft_putnbr_ptr.c ft_putnbr_unsign.c \
 		ft_putstr.c main.c convert.c
 OBJS = $(SRCS:%.c=%.o)
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 $(NAME):$(OBJS)

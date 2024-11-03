@@ -36,16 +36,3 @@ int	ft_printf(const char *format, ...)
 	va_end(ap);
 	return (count);
 }
-
-int main(void)
-{
-	//printf("yours   : ");
-	//int len = ft_printf("%s", (char *)NULL);
-	printf("\n");
-	int cmp = printf("%s", (char *)NULL);
-	printf("\n");
-	//printf("yours   : %d\n", len);
-	printf("original: %d\n", cmp);
-	
-    return (0);
-}
