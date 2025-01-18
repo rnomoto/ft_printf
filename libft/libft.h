@@ -13,12 +13,8 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdio.h>
-# include <ctype.h>
-# include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <limits.h>
 # include <stdint.h>
 
 typedef struct s_list
