@@ -2,6 +2,9 @@
 
 //This test does not work properly when argument contains '\n'.
 
+//This test is trying to compare output of ft_printf and original printf by writing to "ft_printf.txt".
+//But, is it possible?
+
 int ft_printf_test(void)
 {
     int fd = 0;
@@ -47,7 +50,5 @@ int ft_printf_test(void)
 
             free;
         }
-    }
-
-    
+    }    
 }

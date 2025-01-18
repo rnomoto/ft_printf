@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 int	ft_printf(const char *format, ...)
 {
@@ -35,4 +36,14 @@ int	ft_printf(const char *format, ...)
 	}
 	va_end(ap);
 	return (count);
+}
+
+int main(void)
+{
+	//char *buf = "AAA";
+	ft_printf("%s");
+
+	printf("\n");
+
+	return 0;
 }

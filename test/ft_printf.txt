@@ -1,3 +1,4 @@
-ft_printf: a
-arg1: a
-ALL OK
+a
+a
+1
+1
