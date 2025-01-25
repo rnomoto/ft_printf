@@ -6,7 +6,7 @@
 /*   By: rnomoto <rnomoto@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 16:41:45 by rnomoto           #+#    #+#             */
-/*   Updated: 2024/10/14 21:25:10 by rnomoto          ###   ########.fr       */
+/*   Updated: 2025/01/25 20:12:24 by rnomoto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "libft/libft.h"
 # include <stdarg.h>
-# include <stdint.h>
 
 int		ft_printf(const char *format, ...);
 int		convert(const char *format, va_list *ap, int count);

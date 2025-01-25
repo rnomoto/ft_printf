@@ -6,12 +6,12 @@
 /*   By: rnomoto <rnomoto@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 16:34:41 by rnomoto           #+#    #+#             */
-/*   Updated: 2024/10/14 21:57:15 by rnomoto          ###   ########.fr       */
+/*   Updated: 2025/01/25 21:01:14 by rnomoto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
+// #include <stdio.h>
 
 int	ft_printf(const char *format, ...)
 {
@@ -30,7 +30,7 @@ int	ft_printf(const char *format, ...)
 		else if (*format == '%')
 		{
 			format++;
-			count = convert(format, &ap, count);
+			count += convert(format, &ap, count);
 		}
 		format++;
 	}
@@ -38,12 +38,16 @@ int	ft_printf(const char *format, ...)
 	return (count);
 }
 
-int main(void)
-{
-	//char *buf = "AAA";
-	ft_printf("%s");
+// int main(void)
+// {
+// 	int a = ft_printf(" %s", "");
+// 	printf("\n");
+// 	int b = printf(" %s", "");
+// 	printf("\n");
+// 	if (a == b)
+// 		printf("output ok\n");
+// 	else
+// 		printf("output ko\nft_printf: %d\n   printf: %d\n", a, b);
 
-	printf("\n");
-
-	return 0;
-}
+// 	return 0;
+// }
