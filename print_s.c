@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   case_ux.c                                          :+:      :+:    :+:   */
+/*   print_s.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnomoto <rnomoto@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/13 17:25:16 by rnomoto           #+#    #+#             */
-/*   Updated: 2024/10/14 21:24:15 by rnomoto          ###   ########.fr       */
+/*   Created: 2025/03/17 20:24:12 by rnomoto           #+#    #+#             */
+/*   Updated: 2025/03/17 21:34:54 by rnomoto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	case_ux(va_list *ap, int count)
+int	print_s(char *str, int len)
 {
-	int	d;
+	size_t	count;
 
-	d = va_arg(*ap, int);
-	count = ft_putnbr_case(d, count, 'A');
-	return (count);
+	count = ft_strlen(str);
+	if (len == -1)
+		return (-1);
+	if (write(1, str, count) == -1)
+		return (-1);
+	return (len + count);
 }

@@ -5,20 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnomoto <rnomoto@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/13 15:54:21 by rnomoto           #+#    #+#             */
-/*   Updated: 2024/10/14 21:27:52 by rnomoto          ###   ########.fr       */
+/*   Created: 2025/02/20 16:20:49 by rnomoto           #+#    #+#             */
+/*   Updated: 2025/03/17 21:07:51 by rnomoto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	case_c(va_list *ap, int count)
+int	case_c(va_list *ap, int len)
 {
 	char	c;
 
 	c = va_arg(*ap, int);
-	//printf("Read char: %c\n", c);
-	ft_putchar(c);
-	count += 1;
-	return (count);
+	return (print_c(c, len));
 }

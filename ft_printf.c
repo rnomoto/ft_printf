@@ -1,22 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_unsign.c                                 :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnomoto <rnomoto@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/13 14:40:36 by rnomoto           #+#    #+#             */
-/*   Updated: 2024/10/14 17:22:10 by rnomoto          ###   ########.fr       */
+/*   Created: 2024/10/11 16:34:41 by rnomoto           #+#    #+#             */
+/*   Updated: 2025/03/17 21:10:19 by rnomoto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putnbr_unsign(unsigned int nb, int count)
+int	ft_printf(const char *format, ...)
 {
-	if (nb > 9)
-		count = ft_putnbr_unsign(nb / 10, count);
-	ft_putchar(nb % 10 + 48);
-	count += 1;
-	return (count);
+	va_list	ap;
+	int		len;
+	int		i;
+
+	i = 0;
+	va_start(ap, format);
+	len = 0;
+	while (format[i])
+	{
+		if (format[i] != '%')
+		{
+			len = print_c(format[i], len);
+		}
+		else if (format[i] == '%')
+		{
+			i++;
+			len = convert(format[i], &ap, len);
+		}
+		if (len == -1)
+			break ;
+		i++;
+	}
+	va_end(ap);
+	return (len);
 }

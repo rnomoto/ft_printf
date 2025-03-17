@@ -1,20 +1,29 @@
 NAME = libftprintf.a
-SRCS = $(wildcard libft/*.c) case_c.c case_d.c case_x_large.c case_p.c case_s.c case_u.c case_x_small.c \
-		ft_putaddr.c ft_putchar.c ft_putnbr_case.c ft_putnbr_count.c ft_putnbr_ptr.c ft_putnbr_unsign.c \
-		ft_putstr.c main.c convert.c
+SRCS = ft_printf.c convert.c case_c.c case_s.c case_p.c case_d.c case_u.c case_x.c \
+		print_c.c print_s.c
 OBJS = $(SRCS:%.c=%.o)
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
+INCLUDES = -I libft
+LIBFT_DIR = libft
+LIBFT_NAME = libft.a
+
+%.o: %.c
+	$(CC) $(CFLAGS) $(INCLUDES) -c -o $@ $<
 
 $(NAME):$(OBJS)
-	ar rc $(NAME) $(OBJS)
+	make -C $(LIBFT_DIR)
+	cp $(LIBFT_DIR)/$(LIBFT_NAME) $(NAME)
+	ar rcs $(NAME) $(OBJS)
 
 all: $(NAME)
 
 clean:
-	rm -f $(OBJS) $(BONUS_OBJS)
+	make -C $(LIBFT_DIR) clean
+	rm -f $(OBJS)
 
 fclean: clean
+	make -C $(LIBFT_DIR) fclean
 	rm -f $(NAME)
 
 re: fclean all
